@@ -1,0 +1,161 @@
+# Pandas Day 1 – Introduction, Series & DataFrame
+
+## Import Pandas
+
+```python
+import pandas as pd
+```
+
+---
+
+# What is Pandas?
+
+**Pandas** is a Python library used for:
+
+* Storing data
+* Organizing data
+* Cleaning data
+* Analyzing data
+* Manipulating tabular data
+
+**NumPy** is mainly used for arrays, while **Pandas** is mainly used for tables (rows and columns), similar to an Excel spreadsheet.
+
+---
+
+# Series
+
+A **Series** is a one-dimensional labeled array.
+
+### Create a Series
+
+```python
+import pandas as pd
+
+marks = pd.Series([85, 90, 78, 95])
+
+print(marks)
+```
+
+### Output
+
+```text
+0    85
+1    90
+2    78
+3    95
+dtype: int64
+```
+
+### Access Elements
+
+```python
+print(marks[0])
+print(marks[2])
+```
+
+### Find Length
+
+```python
+print(len(marks))
+```
+
+---
+
+# DataFrame
+
+A **DataFrame** is a two-dimensional table consisting of rows and columns.
+
+### Create a DataFrame
+
+```python
+import pandas as pd
+
+data = {
+    "Name": ["Arun", "Priya", "Ravi"],
+    "Age": [20, 19, 21],
+    "Marks": [85, 92, 78]
+}
+
+df = pd.DataFrame(data)
+
+print(df)
+```
+
+### Output
+
+```text
+    Name  Age  Marks
+0   Arun   20     85
+1  Priya   19     92
+2   Ravi   21     78
+```
+
+---
+
+# Access a Single Column
+
+```python
+print(df["Name"])
+```
+
+---
+
+# Access Multiple Columns
+
+```python
+print(df[["Name", "Marks"]])
+```
+
+---
+
+# Number of Rows
+
+```python
+print(len(df))
+```
+
+or
+
+```python
+print(df.shape[0])
+```
+
+---
+
+# Number of Columns
+
+```python
+print(df.shape[1])
+```
+
+---
+
+# Number of Rows and Columns Together
+
+```python
+print(df.shape)
+```
+
+### Example Output
+
+```text
+(3, 3)
+```
+
+This means:
+
+* **3 rows**
+* **3 columns**
+
+---
+
+# Summary
+
+* `pd.Series()` → Create a Series
+* `pd.DataFrame()` → Create a DataFrame
+* `df["Column"]` → Access a single column
+* `df[["Column1", "Column2"]]` → Access multiple columns
+* `len(df)` → Number of rows
+* `df.shape` → Returns `(rows, columns)`
+* `df.shape[0]` → Number of rows
+* `df.shape[1]` → Number of columns
