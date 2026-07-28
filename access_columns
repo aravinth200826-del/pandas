@@ -1,0 +1,30 @@
+import pandas as pd
+data={
+    "name":["aravinth","vishnu","vish","arun"],
+    "age":[18,15,19,21],
+    "marks":[45,39,35,41]
+
+}
+d=pd.DataFrame(data)
+
+#to access single columns 
+   print(d["age"])         
+#output
+0    18
+1    15
+2    19
+3    21
+Name: age, dtype: int64
+
+
+#to access multiple columns     #Use double square brackets when selecting multiple columns.
+print(d[["age","name"]])
+
+#output
+age      name
+0   18  aravinth
+1   15    vishnu
+2   19      vish
+3   21      arun
+
+
