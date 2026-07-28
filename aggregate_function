@@ -1,0 +1,22 @@
+) & (df["Age"] >= 20)])
+Aggregate Functions
+
+Aggregate functions are used to perform calculations on a column.
+
+#Highest Value
+print(df["Marks"].max())
+
+#Lowest Value
+print(df["Marks"].min())
+
+#Average Value
+print(df["Marks"].mean())
+
+#Sum of Values
+print(df["Marks"].sum())
+
+#Count of Values
+print(df["Marks"].count())
+
+#index of max value
+print(df["Marks"].argmax())  
