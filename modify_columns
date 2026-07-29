@@ -1,0 +1,66 @@
+#in this program we will discuss about how to access and modify the columns
+
+
+import pandas as pd
+data={
+    "name":["aravinth","vishnu","vish","arun"],
+    "age":[18,15,19,21],
+    "marks":[45,39,35,41]
+}
+d=pd.DataFrame(data)
+
+
+                        #to update the column value
+
+d.loc[0,"age"]=20        #before "age" 0th value=18   , after "age" 0th value=20
+
+#output
+       name  age  marks
+0  aravinth   20     45
+1    vishnu   15     39
+2      vish   19     35
+3      arun   21     41
+
+
+
+                       #deleting columns
+
+print(d.drop("marks",axis=1))  #it will print dataframe without marks colum
+
+#output
+       name  age
+0  aravinth   20
+1    vishnu   15
+2      vish   19
+3      arun   21
+
+
+                    #adding new column
+
+d["result"]=["pass","pass","fail","pass"]       #it will add new columns to the dataframe
+print(d)                                    
+
+#output
+     name    age    marks  result
+0  aravinth   20     45   pass
+1    vishnu   15     39   pass
+2      vish   19     35   fail
+3      arun   21     41   pass
+
+
+                  #to update values example
+a=[12,34,23,27]
+for i in range(len(a)):
+   d.loc[i,"age"]=a[i]
+
+#output
+
+       name  age  marks result
+0  aravinth   12     45   pass
+1    vishnu   34     39   pass
+2      vish   23     35   fail
+3      arun   27     41   pass
+
+
+
+
