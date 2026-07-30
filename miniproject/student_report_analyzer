@@ -1,0 +1,54 @@
+# Pandas Mini Project - Student Report Analyzer
+
+```python
+import pandas as pd
+
+# Student information
+data = {
+    "name": ["aravinth", "vishnu", "vishva", "arun", "jacob", "titus"],
+    "age": [18, 15, 19, 21, 22, 24],
+    "marks": [29, 78, 89, 78, 98, 93]
+}
+
+# Create DataFrame
+df = pd.DataFrame(data)
+
+# Display complete student data
+print("Student Details")
+print(df)
+
+# Display students who passed (marks >= 50)
+print("\nPassed Students")
+print(df[df["marks"] >= 50][["name", "marks"]])
+
+# Display the topper
+print("\nTopper")
+print(df.loc[df["marks"].idxmax(), ["name", "marks"]])
+
+# Display average marks
+print("\nAverage Marks")
+print(df["marks"].mean())
+
+# Add Result column based on marks
+df.loc[df["marks"] >= 50, "result"] = "Pass"
+df.loc[df["marks"] < 50, "result"] = "Fail"
+
+# Display updated DataFrame
+print("\nStudent Report")
+print(df)
+
+# Display distinction students (marks >= 75)
+print("\nDistinction Students")
+print(df[df["marks"] >= 75][["name", "marks"]])
+
+# Display highest and lowest marks
+print("\nHighest Marks")
+print(df["marks"].max())
+
+print("\nLowest Marks")
+print(df["marks"].min())
+
+# Sort students by marks (highest to lowest)
+print("\nStudents Sorted by Marks")
+print(df.sort_values("marks", ascending=False))
+```
