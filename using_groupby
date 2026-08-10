@@ -1,0 +1,49 @@
+import pandas as pd
+
+data = {
+    'Department': ['Sales', 'Sales', 'IT', 'IT', 'IT', 'HR'],
+    'Employee': ['Alice', 'Bob', 'Charlie', 'David', 'Edward', 'Eva'],
+    'Salary': [50000, 60000, 75000, 80000, 70000, 55000],
+    'Bonus': [5000, 6000, 8000, 9000, 7500, 4000]
+}
+
+df = pd.DataFrame(data)
+
+      #average salary per department
+print(df.groupby('Department')['Salary'].mean())
+'''''#output
+Department
+HR       55000.0
+IT       75000.0
+Sales    55000.0
+Name: Salary, dtype: float64
+
+      #total bonus per department
+print(df.groupby('Department')['Bonus'].sum())
+    #'''output
+Department
+HR        4000
+IT       24500
+Sales    11000
+Name: Bonus, dtype: int64
+
+     #count of each employees in each department
+print(df.groupby('Department')['Employee'].count())
+    #'''output
+Department
+HR       1
+IT       3
+Sales    2
+Name: Employee, dtype: int64
+
+
+   #get max,min and mean for each department
+print(df.groupby('Department')['age'].agg(['max','min','mean']
+    #''''output
+           max     min       mean
+Department                       
+HR          55000  55000  55000.0
+IT          80000  70000  75000.0
+Sales       60000  50000  55000.0
+
+print(df.groupby('Department')['Salary'].agg(['max']))
