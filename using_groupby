@@ -47,3 +47,32 @@ IT          80000  70000  75000.0
 Sales       60000  50000  55000.0
 
 print(df.groupby('Department')['Salary'].agg(['max']))
+
+
+# fill department total salary for each row in employee places
+df['Dept_Total'] = df.groupby('Department')['Salary'].transform('sum')   #in each row fills employee oda department oda total salary fills 
+print(df['Dept_Total'])           
+
+#'''output   
+0    110000
+1    110000
+2    225000
+3    225000
+4    225000
+5     55000
+Name: Dept_Total, dtype: int64
+
+
+# 2. Calculate each employee's percentage contribution to their department
+df['Salary_Share_%'] = (df['Salary'] / df['Dept_Total']) * 100  
+
+print(df[['Employee', 'Department', 'Salary', 'Salary_Share_%']])
+
+#'''output
+    Employee Department  Salary  Salary_Share_%
+0    Alice      Sales   50000       45.454545
+1      Bob      Sales   60000       54.545455
+2  Charlie         IT   75000       33.333333
+3    David         IT   80000       35.555556
+4   Edward         IT   70000       31.111111
+5      Eva         HR   55000      100.000000
