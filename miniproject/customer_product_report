@@ -1,0 +1,30 @@
+import pandas as pd
+
+data = {
+    'Customer_ID': ['C101', 'C101', 'C101', 'C102', 'C102', 'C103', 'C103', 'C103', 'C104'],
+    'Category': ['Electronics', 'Books', 'Electronics', 'Books', 'Clothing', 'Electronics', 'Electronics', 'Clothing', 'Books'],
+    'Order_Value': [250, 20, 150, 15, 45, 500, 300, 80, 25],
+    'Status': ['Delivered', 'Delivered', 'Returned', 'Delivered', 'Delivered', 'Delivered', 'Delivered', 'Delivered', 'Returned']
+}
+
+df = pd.DataFrame(data)
+print(df)
+
+  Task 1 :#Using df.groupby().filter(), keep rows ONLY for customers who satisfy both of these conditions:
+
+1)They have placed at least 3 total orders.
+2)Their total spending (Order_Value) across all orders is greater than $400.
+
+high=df.groupby("Customer_ID").filter(lambda x: ((len(x)>=3) & (x["Order_Value"].sum()>400)))
+print(high)
+
+
+task 2: #Using your filtered DataFrame from Task 1 (or the original df):
+
+1)Filter out all 'Returned' orders first using standard boolean indexing (df[df['Status'] == 'Delivered']).
+2)Group by Customer_ID and compute:
+
+delivered=df[df['Status']!='Returned']
+
+d=delivered.groupby('Customer_ID')['Order_Value'].agg(['sum','count'])
+print(d)
