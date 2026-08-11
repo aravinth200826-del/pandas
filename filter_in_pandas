@@ -1,0 +1,31 @@
+#in this topic we will going to learn about "filter" operations in pandas
+
+import pandas as pd
+
+data = {
+    'Department': ['IT', 'IT', 'IT', 'Sales', 'Sales', 'HR'],
+    'Employee': ['Alice', 'Bob', 'Charlie', 'David', 'Eva', 'Frank'],
+    'Salary': [80000, 90000, 85000, 50000, 60000, 45000]
+}
+df = pd.DataFrame(data)
+
+1) like
+      It used to keeps the exact column you type
+
+print(df.filter(like="Salary"))  #only prints salary column
+
+2)items
+       It used to keeps multiple columns that you type
+
+print(df.filter(items=['Department','Salary'])  #prints department and salary columns
+
+
+3)regex
+
+print(df.filter(regex="y$"))  #it keeps the columns the that was end with 'y'
+
+
+
+
+
+
