@@ -1,0 +1,29 @@
+import pandas as pd
+
+data = {
+    "name": ["Aravinth", "Vishnu", "Arun", "Jacob", "Titus", "Vishnu"],
+    "city": ["Chennai", "Coimbatore", "Chennai", "Salem", "Chennai", "Coimbatore"],
+    "marks": [75, 88, 65, 92, 81, 88]
+}
+
+df = pd.DataFrame(data)
+
+# Find different values in the city column
+print("Unique cities:")
+print(df["city"].unique())
+
+# Find the number of different cities
+print("\nNumber of unique cities:")
+print(df["city"].nunique())
+
+# Count how many students are from each city
+print("\nStudents from each city:")
+print(df["city"].value_counts())
+
+# Find different marks
+print("\nUnique marks:")
+print(df["marks"].unique())
+
+# Find the number of different marks
+print("\nNumber of unique marks:")
+print(df["marks"].nunique())
