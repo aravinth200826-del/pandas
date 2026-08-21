@@ -1,0 +1,56 @@
+import pandas as pd
+
+students = pd.DataFrame({
+    "id": [1, 2, 3, 4, 5, 6],
+    "name": ["Aravinth", "Vishnu", "Arun", "Jacob", "Titus", "Karthik"],
+    "age": [18, 19, 20, 21, 22, 19],
+    "city": ["Salem", "Coimbatore", "Chennai", "Salem", "Chennai", "Coimbatore"]
+})
+
+marks = pd.DataFrame({
+    "id": [1, 2, 3, 4, 5, 6],
+    "maths": [85, 72, None, 90, 65, 88],
+    "python": [90, 78, 75, None, 70, 92],
+    "attendance": [92, 85, 88, 95, None, 90]
+})
+
+#merge dataframes
+df=pd.merge(students,marks,on="id")
+
+#print first 5 rows using head()
+df.head()
+
+#no of rows and columns
+df.shape
+
+#information about the dataframe using info()
+df.info()
+
+       #handle missing data
+
+#count null values in each column
+df.isna().sum()       
+
+#to fill null values in specific column
+df.fillna({"attendance":df["attendance"].max()})
+
+#to fill null value with previous value (index wise)
+df.fillna(method="pad",axis=1)
+
+#to filling null value with upcoming value (row wise)
+df.fillna(method="bfill")
+
+      #analysis
+
+ #average mark of maths column
+df["maths"].mean()     
+
+#highest python mark
+df["python"].max()
+
+#student with highest mark
+df.loc[df["maths"].idxmax(),["name","maths"]]
+
+#print student whose mark greater than 75
+df[df["maths"]>75]["name"]
+
