@@ -54,3 +54,18 @@ df.loc[df["maths"].idxmax(),["name","maths"]]
 #print student whose mark greater than 75
 df[df["maths"]>75]["name"]
 
+
+
+#grouping
+
+
+ #average maths mark for each city
+df.groupby("city")['maths'].mean()
+
+#max python mark for each city
+df.groupby("city")["python"].max()
+
+#mean for maths,python,attendance using groupby and agg()
+df.groupby("city").agg({"maths":'mean',"python":'mean',"attendance":'mean'})
+
+
