@@ -69,3 +69,20 @@ df.groupby("city")["python"].max()
 df.groupby("city").agg({"maths":'mean',"python":'mean',"attendance":'mean'})
 
 
+
+ #sort value from highest to lowest
+df.sort_values(by="maths",ascending=False)
+
+ #how many students from each city
+df["city"].value_counts()
+
+
+ #to add average column to data
+df=df.fillna(value=1)
+df["average"]=(df["maths"]+df["python"])/2
+
+#to add result coloumn that contains if avg>75 "pass" else "Needs Improvement"
+
+df.loc[df["average"]>=75,"result"]="pass"
+df.loc[df["average"]<75,"result"]="Needs Improvement"
+df.head()
